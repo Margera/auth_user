@@ -32,30 +32,41 @@ public class UserModel implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
+    
     @Column(nullable = false, unique = true, length = 50)
     private String username;
+    
     @Column(nullable = false, unique = true, length = 50)
     private String email;
+
     @Column(nullable = false, length = 255)
     @JsonIgnore
     private String password;
+
     @Column(nullable = false, length = 150)
     private String fullName;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
     @Column(length = 50)
     private String phoneNumber;
+
     @Column(length = 50)
     private String cpf;
+
     @Column
     private String imageUrl;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyy HH:mm:ss")
     @Column(nullable = false)
-    private LocalDateTime CreationDate;
+    private LocalDateTime creationDate;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyy HH:mm:ss")
     @Column(nullable = false)
     private LocalDateTime lastUpdateDate;    
