@@ -4,4 +4,4 @@
 
 > Microserviço de autenticação de usuário construido na Decoder week da Michelli Brito
 
-O objetivo deste projeto é gerar a possibilidade de criar um usuário, listar todos os usuários, editar/atualizar um usuário, manter a integridade das informações e tornar seu uso inviavel 👀
+O objetivo deste projeto é gerar a possibilidade de criar um usuário, listar todos os usuários, editar/atualizar um usuário, manter a integridade das informações e tornar seu uso inviável 👀
