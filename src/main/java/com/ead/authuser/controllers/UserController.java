@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 //Solução para reconhecimento de metodos do HATEOAS
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -37,6 +36,7 @@ import java.util.UUID;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/users")
 public class UserController {
+
     @Autowired
     UserService userService;
 
