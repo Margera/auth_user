@@ -62,8 +62,8 @@ public class AuthenticationController {
 
     @GetMapping("/")
     public String index(){
-        log.trace("TRACE");
-        logger.debug("debug");
+        log.trace("TRACE"); // Log do Lombox, que vem pela anotação @Log4j2
+        logger.debug("debug"); // Log da instancia do logger
         logger.info("info");
         logger.warn("warn");
         logger.error("error");
