@@ -3,15 +3,20 @@ package com.ead.authuser.clients;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.constraints.Null;
+
 import com.ead.authuser.dtos.CourseDto;
+import com.ead.authuser.dtos.ResponsePageDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -31,7 +36,10 @@ public class UserClient {
         log.debug("Request URL: {} ", url);
         log.info("Request URL: {} ", url);
         try {
-            
+            ParameterizedTypeReference<ResponsePageDto<CourseDto>> responseType = new ParameterizedTypeReference<ResponsePageDto<CourseDto>>() {};
+            ResponseEntity<ResponsePageDto<CourseDto>> result = restTemplate.exchange(url, HttpMethod.GET, null, responseType);
+
+            searchResult = result.getBody().getContent();
             log.debug("Response Number of Elements: {} ", searchResult.size());
         } catch (Exception e) {
             log.debug("Erros request /courses {} ", e);
