@@ -46,8 +46,7 @@ public class UserController {
                                                        @PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC)
                                                        Pageable pageable, @RequestParam(required = false) UUID courseId){
 
-        Page<UserModel> userModelPage = null;
-        
+        Page<UserModel> userModelPage = null;        
         
         if (courseId != null){
             userModelPage = userService.findAll(SpecificationTemplate.userCourseId(courseId).and(spec), pageable);    
