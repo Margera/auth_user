@@ -17,16 +17,15 @@ import java.util.UUID;
 @Entity
 @Table(name = "users_courses")
 public class UserCourseModel implements Serializable{
-
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private UserModel user;
-    
     @Column(nullable = false)
     private UUID courseId;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private UserModel user;
 }
