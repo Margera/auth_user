@@ -53,4 +53,9 @@ public class CourseClient {
         log.info("Ending requests /courses userId {} ", userId);
         return result.getBody();
     }
+
+    public void deleteUserInCourse(UUID userId){
+        String url = REQUEST_URI_COURSE + "/courses/users/" + userId;
+        restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
+    }
 }
