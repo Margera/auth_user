@@ -1,10 +1,4 @@
 package com.ead.authuser.specifications;
-
-import java.util.UUID;
-
-import javax.persistence.criteria.Join;
-
-import com.ead.authuser.models.UserCourseModel;
 import com.ead.authuser.models.UserModel;
 
 import org.springframework.data.jpa.domain.Specification;
@@ -26,13 +20,5 @@ public class SpecificationTemplate {
         @Spec(path = "userStatus", spec = Equal.class),
         @Spec(path = "fullName", spec = Like.class)
     })
-    public interface UserSpec extends Specification<UserModel>{    }
-
-    public static Specification<UserModel> userCourseId(final UUID courseId){
-        return (root, query, cb) -> {
-            query.distinct(true);
-            Join<UserModel, UserCourseModel> userProd = root.join("usersCourses");
-            return cb.equal(userProd.get("courseId"), courseId);
-        };
-    }
+    public interface UserSpec extends Specification<UserModel>{}
 }
