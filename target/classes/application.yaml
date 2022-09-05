@@ -20,11 +20,16 @@ spring:
     properties:
       hibernate:
         show_sql: true
+  rabbitmq:
+    addresses: amqp://guest:guest@localhost:5672/
 
 ead:
   api:
     url:
       course: 'http://ead-course-service/ead-course'
+  broker:
+    exchange:
+      eserEvent: ead.userevent
 
 eureka:
   client:
