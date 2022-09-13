@@ -21,7 +21,7 @@ spring:
       hibernate:
         show_sql: true
   rabbitmq:
-    addresses: amqp://guest:guest@localhost:5672/
+    address: amqp://guest:guest@localhost:5672/
 
 ead:
   api:
